@@ -1,0 +1,20 @@
+标题：一日一教学系列9_创建文件夹：md
+首发地址：http://bbs.bathome.cn/viewthread.php?tid=3319
+首发日期：2009.2.13
+更新日期：无
+
+上一篇：重命名文件（夹）：ren  http://bbs.bathome.cn/viewthread.php?tid=3318
+下一篇：删除文件夹：rd http://bbs.bathome.cn/viewthread.php?tid=3340
+
+　　创建文件夹使用的是md命令，它的另一个写法为mkdir（由MakeDirectory演变而来），格式为：md 文件夹名，其中，文件夹名可以使用带路径的格式。例如：md d:\test，也可以用 md test 在当前路径下建立test文件夹。
+
+　　如果要创建的文件夹带有空格或&，需要用引号把文件夹名括起来，例如：md "test abc"、md "abc&xyz"。如果不使用引号，又会带来什么后果呢？
+
+　　测试的结果是：
+
+　　1、如果文件夹名带空格，那么，md test abc 语句会在当前目录下创建test和abc这两个文件夹；利用这个特点，我们有时候可以收到化繁为简的奇效：如果要创建abc def xyz这三个文件夹，直接使用 md abc def xyz 就行了，而无需连写三条md语句。当然，md abc;def;xyz或者md abc,def,xyz 这样的写法也是可以的。
+　　2、如果文件夹名中含有&，那么，md abc&xyz 会创建abc这个文件夹，并提示说：'xyz'不是内部或外部命令，也不是可运行的程序或批处理文件，这是因为，&是复合语句的连接符号，它把前后两部分视为两条子语句了。
+
+　　忠告：如果文件夹名含有特殊符号，请不要忘记使用双引号！
+
+　　md还有一个比较方便的功能：创建中级目录。也就是说，md a\b\c这样的命令，可以在当前目录下建立文件夹a，然后，在a下建立文件夹b，b之下再建立文件夹c，一气呵成，而无需先md a之后，再cd a，然后md b，再cd b，接着cd b，然后md c。
